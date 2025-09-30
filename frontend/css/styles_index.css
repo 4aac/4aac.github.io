@@ -1,0 +1,15 @@
+/* Colour palette*/
+:root {
+  --header_dark: #182430;
+  --page_background: #f0f1f3;
+  --primary_text: #525e69;
+  --accent_link: #154297;
+  --card_background: #314a59;
+  --muted_dark: #263749;
+  --muted_text: #9c9ea1;
+  --soft_blue: #647391;
+  --blue_gray: #6a8d9b;
+  --light_secondary: #b2cad8;
+  --tile_alt: #9dadd0;
+  --deep_accent: #0d3b93;
+}
