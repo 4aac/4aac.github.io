@@ -1,0 +1,51 @@
+/* --- Scrollbar --- */
+
+:root {
+  --blue-scroll-bar: #2f445b;
+
+  --background-color: #141d26;
+  --main-blue: #1b2836;
+
+  --text-main: #c9c9c9;
+  --text-secondary: #657684;
+  --twitter-blue: #459fb5;
+  --twitter-blue-secondary: #60c3df;
+  --twitter-blue-dark: #397788;
+
+  --like-red: #dd2e44;
+
+  --scroll-track: var(--background-color);
+  --scroll-thumb: var(--blue-scroll-bar);
+  --scroll-thumb-hover: #243547;
+}
+
+/* Chrome, Edge, Safari */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb);
+  border-radius: 10px;
+  border: 2px solid var(--scroll-track);
+  transition: background-color 0.3s ease;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:active {
+  background-color: var(--scroll-thumb-hover);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+}

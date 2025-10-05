@@ -1,12 +1,15 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>AAC website</title>
-        <link rel="stylesheet" href="../css/styles_index.css">
-    </head>
-    <body>
-        <header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AAC website</title>
+    <link rel="stylesheet" href="../css/styles_index.css">
+    <link rel="stylesheet" href="../css/ai_generated.css">
+    <link rel="stylesheet" href="../css/styles_footer.css">
+</head>
+<body>
+    <header>
+        <div class="section_background" id="section_background_header">
             <div id="main_div_header">
                 <!-- Profile Picture -->
                 <img src="../../img/pfp/pfp_original.jpg" id="PFP_fixed" alt="Profile Picture">
@@ -15,17 +18,17 @@
                 <div id="top_nav_header">
                     <div id="top_header_left">
                         <div class="top_nav_left_icons">
-                            <img src="../../img/header/top_navbar/icons8-casa-144.svg" alt="House icon">
+                            <img id="house_icon" src="../../img/header/top_navbar/casa.png" alt="House icon">
                             <p>Home</p>
                         </div>
 
                         <div class="top_nav_left_icons">
-                            <img src="../../img/header/top_navbar/icons8-archivo.svg" alt="Document icon">
+                            <img id="doc_icon" src="../../img/header/top_navbar/documento.png" alt="Document icon">
                             <p>CV</p>
                         </div>
 
                         <div class="top_nav_left_icons">
-                            <img src="../../img/header/top_navbar/message-text-1-svgrepo-com.svg">
+                            <img src="../../img/header/top_navbar/mensaje-de-texto.png">
                             <p>Messages</p>
                         </div>
                     </div>
@@ -35,7 +38,7 @@
                     <div id="top_header_right">
                         <div id="search_bar" class="top_header_right_element">
                             <p>Search Twitter</p>
-                            <img src="../../img/header/top_navbar/magnifying-glass-svgrepo-com.svg" alt="Search icon">
+                            <img src="../../img/header/top_navbar/lupa.png" alt="Search icon">
                         </div>
 
                         <img src="../../img/pfp/pfp_original.jpg" class="top_header_right_element" id="PFP_header_right">
@@ -61,23 +64,25 @@
                         <li>Miscellaneous</li>
                     </ul>
 
-                    <div>
-                        <img>
-                        <img>
+                    <div id="nav_right">
+                        <img class="sun_moon_icons" src="../../img/header/top_navbar/soleado.png" alt="Sun icon">
+                        <img class="sun_moon_icons" id="moon_icon" src="../../img/header/top_navbar/luna.png" alt="Moon icon">
 
-                        <div>
-                            <img>
+                        <div id="following_button">
+                            <img id="check_nav_right_icon" src="../../img/header/top_navbar/cheque.png" alt="Moon icon">
                             <p>Following</p>
                         </div>
                     </div>
                 </nav>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <main>
+    <main>
+        <div class="section_background" id="section_background_main">
             <div id="main_div_main">
                 <!-- Left part of the main -->
-                <div>
+                <div >
                     <div>
                         <p>asier</p>
                         <img>
@@ -267,20 +272,22 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
+    </main>
 
-        <footer>
+    <footer>
+        <div class="section_background" id="section_background_footer">
             <div id="main_div_footer">
                 <!-- Higher part of the footer -->
-                <div id="">
-                    <img>
+                <div id="footer_grid">
+                    <img alt="Logo AAC" src="../../img/logo/logo_white.png" id="logo_footer">
 
-                    <div>
+                    <div class="div_grid_footer">
                         <p>About</p>
-                        <p>This website is a tribute to the finest days of the internet and little piece of me.</p>
+                        <p id="about_footer">This website is a tribute to the finest days of the internet and little piece of me.</p>
                     </div>
 
-                    <div>
+                    <div class="div_grid_footer">
                         <p>Website</p>
                         <ul>
                             <li>About Me</li>
@@ -290,7 +297,7 @@
                         </ul>
                     </div>
 
-                    <div>
+                    <div class="div_grid_footer">
                         <p>Information</p>
                         <ul>
                             <li>Disclaimer</li>
@@ -298,20 +305,19 @@
                         </ul>
                     </div>
 
-                    <div>
-                        <p>Connect with me</p>
-                        <img>
-                        <img>
-                        <img>
-                        <img>
+                    <div class="div_grid_footer">
+                        <p>Connect with me:</p>
+                        <img src="../../img/footer/twitter-forma-negra.png" alt="Twitter logo">
+                        <img src="../../img/footer/linkedin.png" alt="Linkedin logo">
+                        <img src="../../img/footer/youtube.png" alt="Youtube logo">
+                        <img src="../../img/footer/sobre.png" alt="Email icon">
                     </div>
                 </div>
 
                 <!-- Bottom part of the footer -->
-                <p></p>
+                <p id="copyright_p">Copyright © 2026 - Asier Acuña. All right reserved.</p>
             </div>
-        </footer>
-
-        
-    </body>
-    </html>
+        </div>
+    </footer>
+</body>
+</html>
