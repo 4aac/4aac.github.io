@@ -1,0 +1,415 @@
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#what-is-classification">Classification</a><ul>
+<li><a href="#learning-step">Learning step</a></li>
+<li><a href="#classification-step">Classification step</a></li>
+</ul>
+</li>
+<li><a href="#decision-trees">Decision Trees</a><ul>
+<li><a href="#id3-algorithm">ID3</a><ul>
+<li><a href="#example-id3">1. Example</a></li>
+<li><a href="#code-id3">2. Code</a></li>
+</ul>
+</li>
+<li><a href="#cart-algorithm">CART</a><ul>
+<li><a href="#example-cart">1. Example</a></li>
+<li><a href="#code-cart">2. Code</a></li>
+</ul>
+</li>
+<li><a href="#the-evaluator">Random Forest</a><ul>
+<li><a href="#example-random-forest">1. Example</a></li>
+<li><a href="#code-random-forest">2. Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#conclusion">Evaluation Metrics</a></li>
+<li><a href="#sponsor">Sponsor</a></li>
+</ul>
+<hr>
+<p>In this blog I will try to cover most of the topics learn in the Machine Learning subject, more specific, in the classification unit. The objective is explaining it in a way, you, the reader, can understand it and I can learn from it. This way, both of us win!</p>
+<blockquote>
+<p>For this example/tutorial it is assumed that you have moderate knowledge of at least <code>Python</code>, which is the language we will be using in order to help most people understand the concepts rather than focusing too much on the code, even though it will of course be present throughout all the  explanations.</p>
+</blockquote>
+<h2 id="what-is-classification-">What is classification?</h2>
+<p>Classification is a branch of machine learning that tries to predict categorical labels through models called classifiers. E.g., predicting if a loan is &quot;safe&quot; or &quot;risky&quot;; if there is a &quot;cat&quot; or a &quot;dog&quot; in a picture; or &quot;treatment A&quot;, &quot;treatment B&quot;, or &quot;treatment C&quot; for a patient.</p>
+<p>These categories are represented by discrete values, where the order of the proper values has no meaning. E.g., if we want to represent three different treatments, instead of using the notation &quot;treatment X&quot;, we give each of the labels a value 1..3. This way, the numbers are a representation of the name of those labels, but much easier to work with.</p>
+<p>To classify data, we use a two-step process, which consist of:</p>
+<ol>
+<li><strong>A learning step</strong>: where the classification model is built.</li>
+<li><strong>A classification step</strong>: where the model is used to predict some labels for some given data.</li>
+</ol>
+<h3 id="learning-step">Learning Step</h3>
+<p>In the first step, also called training phase, we create the classifier. This classifier learns from a training set, which we choose from a dataset. </p>
+<p>Datasets are formed by tuples, a tuple $X$ is represented by an n-dimensional vector $X = (x_1, x_2, \ldots, x_n)$, in which each $X_i$ represent a measure of an attribute of a tuple. Also, each tuple is assumed to belong to a predefined class, determined by another attribute called the <strong>class label attribute</strong>. These are the discrete and unordered values I talked before.</p>
+<p>Because the class label of each training tuple is provided, this is step is also called <strong>supervised learning</strong> (the learning of the classifier is &quot;supervised&quot; because it is told to which class each training tuple belongs). In the opposite case, there is <strong>unsupervised learning</strong>, in which the class label of each training tuple is not known, and the number or set of classes to be learned may not be known in advance.</p>
+<p>This first step of the classification tries to predict the class label of a given tuple. This can be represented in the form of classification rules, decision trees, mathematical formulae, distributions… But not all models are easily interpretable, that&#39;s why we are going to focus on decision trees.</p>
+<h3 id="classification-step">Classification Step</h3>
+<p>In the second step, we use the model for classification. First, we estimate the <strong>accuracy</strong> of the predictions of our model. For this we are going to use a test set, because if we were to use the training set to measure the classifier’s accuracy, this estimate would likely be optimistic, because the classifier tends to <strong>overfit</strong> the data (i.e., during learning it may have some particular anomalies of the training data that are not present in the general data set overall).</p>
+<p>The accuracy of a classifier on a given test set is the percentage of test set tuples that are correctly classified by the classifier. The associated class label of each test tuple is compared with the learned classifier’s class prediction for that tuple. If the accuracy of the classifier is considered acceptable, the classifier can be used to classify future data tuples for which the class label is not known.</p>
+<h2 id="decision-trees">Decision Trees</h2>
+<p><strong>Decision tree learning</strong> is a technique used to predict outcomes from discrete (categorical) values. The model represents knowledge in the form of a tree, where each internal node corresponds to a decision based on an attribute, and each branch represents the outcome of that decision. The leaves of the tree indicate the final predicted values.</p>
+<p>Once a decision tree is constructed, it can also be rewritten as a set of <strong>if–then rules</strong>. This alternative form often makes the learned knowledge easier for humans to read and interpret, while still preserving the logic of the original tree.</p>
+<p><img src="https://insidelearningmachines.com/wp-content/uploads/2021/02/tree_diagram.png" alt="Decision tree">
+In general, decision trees represent a disjunction of conjunctions of constraints on the attribute values of instances. Each path from the tree root to a leaf corresponds to a conjunction of attribute tests, and the tree itself to a disjunction of these conjunctions.</p>
+<blockquote>
+<p>Exercise: turning the last image&#39;s decision tree into a conjunction-disjunction sentence:</p>
+<p>Is able to fly?
+True: (Bird ^ Lay eggs) v (Bird ^ not(Has feathers))
+False: (Mammal ^ not(Lay eggs)) v (Mammal ^ not(Has feathers))</p>
+</blockquote>
+<p>Now let&#39;s take a look at the best problems in which we can use decision trees:</p>
+<ul>
+<li><p><strong>Representation of Instances</strong>: in decision tree learning, each element of the dataset is represented using <strong>attributes and their values</strong>. For instance, an attribute might be <em>Temperature</em>, and its possible values could be <em>Hot</em>, <em>Mild</em>, or <em>Cold</em>. Decision trees are particularly effective when attributes have a limited number of different, non-overlapping values. This makes it easy to create branches in the tree that clearly divide the data into smaller, well-defined groups.</p>
+</li>
+<li><p><strong>Handling Different Types of Data</strong>: decision trees work naturally with <strong>discrete or categorical data</strong>, where the outcome belongs to a set of fixed labels. A simple example is predicting whether a person will play tennis on a given day, with possible outputs of <em>Yes</em> or <em>No</em>. Beyond binary classification, decision trees can also handle <strong>multi-class problems</strong>, where the target has more than two possible values. In addition, some decision tree algorithms are designed to work with <strong>numerical attributes</strong>. For example, instead of splitting on “Temperature = Hot,” the tree might split on a condition like “Temperature ≥ 30°C.” A more advanced version, known as a <strong>regression tree</strong>, can even predict <strong>real-valued outputs</strong> (such as estimating a house price). However, this application is less common compared to classification tasks.</p>
+</li>
+<li><p><strong>Expressiveness of Decision Trees</strong>: one of the strengths of decision trees is their ability to represent <strong>disjunctive descriptions</strong>, which means conditions that involve logical “OR” relationships. For example, a decision tree might predict that a person will play tennis if <em>the weather is sunny OR the humidity is low</em>. This flexibility allows trees to represent complex rules in a structured and systematic way, which would be difficult to capture with simple linear models.</p>
+</li>
+<li><p><strong>Dealing with Imperfections in Data</strong>: decision tree learning methods are <strong>robust to imperfect data</strong>, which makes them highly practical. If the training data contains <strong>errors in classification labels</strong> (for example, a day incorrectly labeled as “Play Tennis = Yes”), the tree can still generalize well and make reasonable predictions. Similarly, if there are mistakes in the <strong>attribute values</strong> (such as recording the wrong temperature), decision trees usually tolerate these errors without a severe drop in accuracy.</p>
+</li>
+<li><p><strong>The training data may contain missing attribute values</strong>: another common issue in real-world data is <strong>missing values</strong>. For example, if the humidity is not recorded for certain days, a decision tree can still use the other attributes (such as temperature or wind) to make predictions. Some algorithms even have built-in strategies for handling missing data, such as assigning fractional weights to branches or choosing the most likely value based on the training set.</p>
+</li>
+</ul>
+<h2 id="id3-algorithm">ID3 Algorithm</h2>
+<p>ID3 is the acronym of <strong>Iterative Dichotomizer 3</strong>, which once you understand the algorithm, you realize is pretty self-explanatory.</p>
+<p>Dichotomization is the process of dividing something into two completely opposite things. That&#39;s what I was referring to: the ID3 algorithm is a iterative algorithm that divides attributes into two different groups to form a tree. Then, it calculates the <strong>entropy</strong> and <strong>information gains</strong> of each attribute. This way, the most determinant attribute is put on the tree as a decision node. This process continues iteratively until it reaches a decision.</p>
+<p>Now let&#39;s do a more in depth analysis of the algorithm:</p>
+<ul>
+<li><p>The central choice in the ID3 algorithm is selecting which attribute to test at each node in the tree. We would like to select the attribute that is most useful for classifying examples. For this, we are going to use a statistical property called <strong>information gain</strong>, that measures how well a given attribute classifies the training data. ID3 uses this information gain measure to select among the candidate attributes at each step while growing the tree.</p>
+</li>
+<li><p>To calculate the information gain, we use the <strong>entropy</strong>, which is a measure of uncertainty. It can be calculated as follows $H(S) = - \sum_{i=1}^{n} p_i \, \log_2(p_i)$, where $S$ is a collection of examples and $p_i$ is the proportion of examples. Basically, what we are doing here is measuring the bits of entropy (that&#39;s why there is as $log_2$). So a low entropy, let&#39;s consider 0, means that the proportion of examples is certain, whilst, a high entropy, 1, means that the proportion is very uncertain.</p>
+<blockquote>
+<p>E.g., a coin with two faces in which both faces are tails has a low entropy because we have the certainty that when tossed, we will be seen tails. While if we have a high entropy, in this case we will have one face with heads and the other with tails. Therefore, once tossed, we will have uncertainty of what is going to come out.</p>
+</blockquote>
+</li>
+<li><p>Once we know all of this, given the entropy of a collection of training examples, we can define the information gain, which is simply the expected reduction in entropy caused by partitioning the examples according to an attribute. We can define it like this $Gain(S, A) = Entropy(S) - \sum_{v \in Values(A)} \frac{|S_v|}{|S|} \, Entropy(S_v)$. Where $A$ is an attribute, $S$ is a collection of samples, $Values(A)$ is the set of all possible values for an attribute $A$ and $S_v$ is the subset of $S$ for which the attribute $A$ has value $v$.</p>
+</li>
+</ul>
+<p>The ID3 algorithm builds decision trees by searching through a space of possible hypotheses to find one that best fits the training data. It starts with an empty tree and gradually adds branches, guided by the measure of information gain, which helps select the most informative attributes. This process is a hill-climbing search that moves from simple to more complex hypotheses without backtracking, meaning it may sometimes settle on a <strong>locally optimal</strong> tree rather than the global best one. </p>
+<p>The hypothesis space of ID3 includes all possible decision trees for the given attributes, ensuring that the target function can always be represented. However, because ID3 maintains only one hypothesis at a time, it cannot compare multiple consistent trees or evaluate alternative solutions. By using all training examples at each step, ID3 makes statistically informed decisions that reduce sensitivity to individual data errors, and with small adjustments, it can handle noisy data effectively.</p>
+<h3 id="example-id3">Example ID3</h3>
+<p>To make everything clearer and make sure you understand all the steps, I&#39;m going to use a little toy dataset and writte all the steps by hand, so you can see the entire procedure. Usually, people use the &quot;<a href="https://gist.github.com/DiogoRibeiro7/c6590d0cf119e87c39e31c21a9c0f3a8">playing tennis outside</a>&quot; dataset, but it is already solved and you have a lot of examples online. So I&#39;m going to use a different one provided by <a href="https://www.youtube.com/@VidyaMaheshHuddar">Vidya Mahesh Huddar</a>. Finally, I&#39;m going to code it in python and show you the resolution with code and comparing it with the one we will be doing now. I invite you to do it with me if you understood everything more or less untill this point, and if not, my bad, you can continue reading and solve the exercise later.</p>
+<table>
+<thead>
+<tr>
+<th>Age</th>
+<th>Competition</th>
+<th>Type</th>
+<th>Profit (Class)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Old</td>
+<td>Yes</td>
+<td>SW</td>
+<td>Down</td>
+</tr>
+<tr>
+<td>Old</td>
+<td>No</td>
+<td>SW</td>
+<td>Down</td>
+</tr>
+<tr>
+<td>Old</td>
+<td>No</td>
+<td>HW</td>
+<td>Down</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Yes</td>
+<td>SW</td>
+<td>Down</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Yes</td>
+<td>HW</td>
+<td>Down</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>No</td>
+<td>HW</td>
+<td>Up</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>No</td>
+<td>SW</td>
+<td>Up</td>
+</tr>
+<tr>
+<td>New</td>
+<td>Yes</td>
+<td>SW</td>
+<td>Up</td>
+</tr>
+<tr>
+<td>New</td>
+<td>No</td>
+<td>HW</td>
+<td>Up</td>
+</tr>
+<tr>
+<td>New</td>
+<td>No</td>
+<td>SW</td>
+<td>Up</td>
+</tr>
+</tbody>
+</table>
+<p>In this dataset the objective is to predict if the profit of each candidate is going to be Up or Down. Then, the first step is calculating the entropy of it, so later we can calculate the information gain of each attribute starting from this:</p>
+<p>In this case $S=Profit$:</p>
+<p>$H(S) = -\sum_{i=1}^{2} p_i \log_2(p_i) = -\frac{5}{10}\log_2\left(\frac{5}{10}\right) - \frac{5}{10}\log_2\left(\frac{5}{10}\right) = 1$</p>
+<p>After that we have to calculate the information gain of the rest of attributes and then select the one with the biggest information gain to keep branching:</p>
+<ul>
+<li><p><strong>Information gain of age</strong>:
+First, we calculate the entropy of each subset of the attribute:
+$H(S<em>{old}) = -\sum</em>{i=1}^{2} p_i \log_2(p_i) = -\frac{3}{3}\log_2\left(\frac{3}{3}\right) - \frac{3}{3}\log<em>2\left(\frac{3}{3}\right) = 0$
+$H(S</em>{mid}) = -\sum_{i=1}^{2} p_i \log_2(p_i) = -\frac{2}{4}\log_2\left(\frac{2}{4}\right) - \frac{2}{4}\log<em>2\left(\frac{2}{4}\right) = 1$
+$H(S</em>{new}) = -\sum_{i=1}^{2} p_i \log_2(p_i) = -\frac{3}{3}\log_2\left(\frac{3}{3}\right) - \frac{3}{3}\log<em>2\left(\frac{3}{3}\right) = 0$
+Then, we calculate the gain using the different entropies:
+$Gain(S, \text{Age}) = H(S) - \sum</em>{v \in {\text{old}, \text{mid}, \text{new}}} \frac{S_v}{S} H(S_v) = 1 - \frac{1}{10} \cdot 0 - \frac{4}{10} \cdot 1 - \frac{3}{10} \cdot 0 = 0.6$</p>
+</li>
+<li><p><strong>Information gain of competition</strong>:
+First, we calculate the entropy of each subset of the attribute:
+$H(S<em>{Yes}) = -\sum</em>{i=1}^{2} p_i \log_2(p_i) = -\frac{3}{4}\log_2\left(\frac{3}{4}\right) - \frac{1}{4}\log<em>2\left(\frac{1}{4}\right) = 0.81$
+$H(S</em>{No}) = -\sum_{i=1}^{2} p_i \log_2(p_i) = -\frac{2}{6}\log_2\left(\frac{2}{6}\right) - \frac{4}{6}\log<em>2\left(\frac{4}{6}\right) = 0.92$
+Then, we calculate the gain using the different entropies:
+$Gain(S, \text{Competition}) = H(S) - \sum</em>{v \in {\text{Yes}, \text{No}}} \frac{S_v}{S} H(S_v) = 1 - \frac{4}{10} \cdot 0.81 - \frac{6}{10} \cdot 0.92 = 0.12$</p>
+</li>
+<li><p><strong>Information gain of type</strong>:
+First, we calculate the entropy of each subset of the attribute:
+$H(S<em>{SW}) = -\sum</em>{i=1}^{2} p_i \log_2(p_i) = -\frac{3}{6}\log_2\left(\frac{3}{6}\right) - \frac{3}{6}\log<em>2\left(\frac{3}{6}\right) = 1$
+$H(S</em>{HW}) = -\sum_{i=1}^{2} p_i \log_2(p_i) = -\frac{2}{4}\log_2\left(\frac{2}{4}\right) - \frac{2}{4}\log<em>2\left(\frac{2}{4}\right) = 1$
+Then, we calculate the gain using the different entropies:
+$Gain(S, \text{Type}) = H(S) - \sum</em>{v \in {\text{SW}, \text{HW}}} \frac{S_v}{S} H(S_v) = 1 - \frac{6}{10} \cdot 1 - \frac{4}{10} \cdot 1 = 0$</p>
+</li>
+</ul>
+<p>Now that we have calculate all the information gains, we choose the attribute age to be the root of out node, since it is the one with the highest gain $$0.6&gt;0.12&gt;0$$
+When we compute the information gain for an attribute, we are measuring <strong>how much knowing that attribute reduces the uncertainty</strong> about the class. In other words, it tells us <strong>how informative</strong> that attribute is for predicting the target.</p>
+<p>A higher information gain means that the attribute provides a <strong>better separation</strong> of the training examples into groups that are more “pure”, meaning that most examples in those groups belong to the same class. This helps the algorithm make more confident and accurate predictions.</p>
+<p>The ID3 algorithm follows a <strong>greedy strategy</strong>, meaning that at each step, it chooses the attribute that seems best <strong>at that moment</strong>. By using the most informative attribute at the root, ID3 ensures that the first split divides the dataset in the most meaningful way possible. This leads to a simpler and more efficient tree because early splits quickly reduce uncertainty. Each subsequent node then repeats the same process on its subset of data until the tree is complete.</p>
+<p>The tree for the moment is going to look like this, with the attribute Age as root and its values as branches:</p>
+<pre><code class="lang-mermaid">graph TD
+    A[Age] --&gt;|<span class="hljs-type">old</span>| <span class="hljs-type">B</span>
+    A --&gt;|<span class="hljs-type">mid</span>| <span class="hljs-type">C</span>
+    A --&gt;|<span class="hljs-type">new</span>| <span class="hljs-type">D</span>
+</code></pre>
+<p>Now we have to look at each branch and repeat the las process but with the specific subset of examples which contain that certain Age as attribute. But  if we look carefully to the data, we can save several minutes of work, becase it can happen that the final answer is already in the data:</p>
+<table>
+<thead>
+<tr>
+<th>Age</th>
+<th>Competition</th>
+<th>Type</th>
+<th>Profit (Class)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Old</td>
+<td>Yes</td>
+<td>SW</td>
+<td>Down</td>
+</tr>
+<tr>
+<td>Old</td>
+<td>No</td>
+<td>SW</td>
+<td>Down</td>
+</tr>
+<tr>
+<td>Old</td>
+<td>No</td>
+<td>HW</td>
+<td>Down</td>
+</tr>
+</tbody>
+</table>
+<p>Here, if the Age is Old, doesn&#39;t matter the rest of attributes, because the profit is going to be Down every time.</p>
+<table>
+<thead>
+<tr>
+<th>Age</th>
+<th>Competition</th>
+<th>Type</th>
+<th>Profit (Class)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New</td>
+<td>Yes</td>
+<td>SW</td>
+<td>Up</td>
+</tr>
+<tr>
+<td>New</td>
+<td>No</td>
+<td>HW</td>
+<td>Up</td>
+</tr>
+<tr>
+<td>New</td>
+<td>No</td>
+<td>SW</td>
+<td>Up</td>
+</tr>
+</tbody>
+</table>
+<p>The same happens with the Age being New, the profit is going to be always Up. This way, we can generalize the answers and say that if the candidate is Old, the profits are Down and if the candidate is New, the profits are Up.</p>
+<pre><code class="lang-mermaid">graph TD
+    A[Age] --&gt;|<span class="hljs-type">old</span>| <span class="hljs-type">Down</span>
+    A --&gt;|<span class="hljs-type">mid</span>| <span class="hljs-type">C</span>
+    A --&gt;|<span class="hljs-type">new</span>| <span class="hljs-type">Up</span>
+</code></pre>
+<p>Then we end up with this data, in which we have to repeat the same process as before, but with one attribute less. If in other datasets, we aren&#39;t this lucky, we will have to split the data into these subsets and calculate everything again, as we are going to do now.</p>
+<table>
+<thead>
+<tr>
+<th>Age</th>
+<th>Competition</th>
+<th>Type</th>
+<th>Profit (Class)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mid</td>
+<td>Yes</td>
+<td>SW</td>
+<td>Down</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Yes</td>
+<td>HW</td>
+<td>Down</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>No</td>
+<td>HW</td>
+<td>Up</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>No</td>
+<td>SW</td>
+<td>Up</td>
+</tr>
+</tbody>
+</table>
+<p>Now, the entropy to compare with is going to be the elements with the Age being Mid $S=S_{mid}$. We have already calculated it in the last step, but I rewrite it as a reminder:</p>
+<p>$$H(S<em>{mid}) = -\sum</em>{i=1}^{2} p_i \log_2(p_i) = -\frac{2}{4}\log_2\left(\frac{2}{4}\right) - \frac{2}{4}\log_2\left(\frac{2}{4}\right) = 1$$</p>
+<p>And we recalculate the information gains:</p>
+<ul>
+<li><p><strong>Information gain of competition</strong>:
+First, we calculate the entropy of each subset of the attribute:
+$H(S<em>{Yes}) = -\sum</em>{i=1}^{2} p_i \log_2(p_i) = -\frac{2}{2}\log_2\left(\frac{2}{2}\right) - \frac{0}{2}\log<em>2\left(\frac{0}{2}\right) = 0$
+$H(S</em>{No}) = -\sum_{i=1}^{2} p_i \log_2(p_i) = -\frac{0}{2}\log_2\left(\frac{0}{2}\right) - \frac{2}{2}\log<em>2\left(\frac{2}{2}\right) = 0$
+Then, we calculate the gain using the different entropies:
+$Gain(S</em>{mid}, \text{Competition}) = H(S) - \sum_{v \in {\text{Yes}, \text{No}}} \frac{S_v}{S} H(S_v) = 1 - \frac{2}{4} \cdot 0 - \frac{2}{4} \cdot 0 =  1$</p>
+</li>
+<li><p><strong>Information gain of type</strong>:
+First, we calculate the entropy of each subset of the attribute:
+$H(S<em>{SW}) = -\sum</em>{i=1}^{2} p_i \log_2(p_i) = -\frac{1}{2}\log_2\left(\frac{1}{2}\right) - \frac{1}{2}\log<em>2\left(\frac{1}{2}\right) = 1$
+$H(S</em>{HW}) = -\sum_{i=1}^{2} p_i \log_2(p_i) = -\frac{1}{2}\log_2\left(\frac{1}{2}\right) - \frac{1}{2}\log<em>2\left(\frac{1}{2}\right) = 1$
+Then, we calculate the gain using the different entropies:
+$Gain(S, \text{Type}) = H(S) - \sum</em>{v \in {\text{SW}, \text{HW}}} \frac{S_v}{S} H(S_v) = 1 - \frac{6}{10} \cdot 1 - \frac{4}{10} \cdot 1 = 0$</p>
+</li>
+</ul>
+<p>As the information gain in competition is the maximum possible, we choose it over the type.</p>
+<p>$$1 &gt; 0$$</p>
+<p>Now the tree would be looking like this:</p>
+<pre><code class="lang-mermaid">graph TD
+    A[Age] --&gt;|<span class="hljs-type">old</span>| <span class="hljs-type">Down</span>
+    A --&gt;|<span class="hljs-type">mid</span>| <span class="hljs-type">Competition</span>
+    A --&gt;|<span class="hljs-type">new</span>| <span class="hljs-type">Up</span>
+    Competition --&gt;|<span class="hljs-type">yes</span>| <span class="hljs-type">B</span>
+    Competition --&gt;|<span class="hljs-type">no</span>| <span class="hljs-type">C</span>
+</code></pre>
+<p>So we look at the data again to see if we can see the answer or if we need to keep calculating:</p>
+<table>
+<thead>
+<tr>
+<th>Age</th>
+<th>Competition</th>
+<th>Type</th>
+<th>Profit (Class)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mid</td>
+<td>Yes</td>
+<td>SW</td>
+<td>Down</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>Yes</td>
+<td>HW</td>
+<td>Down</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Age</th>
+<th>Competition</th>
+<th>Type</th>
+<th>Profit (Class)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mid</td>
+<td>No</td>
+<td>HW</td>
+<td>Up</td>
+</tr>
+<tr>
+<td>Mid</td>
+<td>No</td>
+<td>SW</td>
+<td>Up</td>
+</tr>
+</tbody>
+</table>
+<p>And luckily, we reached a conclusion: if the candidate has the attribute competition, the profit is going to be Up. In the opposite case, the profit is going to be Down. Therefore, we have reached some leaf nodes, and we don&#39;t need nothing else to compare. Finally, the tree is going to look like this:</p>
+<pre><code class="lang-mermaid">graph TD
+    A[Age] --&gt;|<span class="hljs-type">old</span>| <span class="hljs-type">Down</span> 
+    A --&gt;|<span class="hljs-type">mid</span>| <span class="hljs-type">Competition</span>
+    A --&gt;|<span class="hljs-type">new</span>| <span class="hljs-type">Up</span> 
+    Competition --&gt;|<span class="hljs-type">yes</span>| <span class="hljs-type">Down</span>
+    Competition --&gt;|<span class="hljs-type">no</span>| <span class="hljs-type">Up</span>
+</code></pre>
+<p>So the solution to this problem is the following:</p>
+<p>Up: (not(competition) ^ mid) or new
+Down: (competition ^mid) or old</p>
+<h3 id="code-id3">Code ID3</h3>
+<p>Now let&#39;s take a look at the python code. I will explaing everything step by step, but focusing on the theory and not how python works itself.</p>
+<pre><code class="lang-python">class TokenType(Enum):
+    <span class="hljs-attr">LParen</span> = <span class="hljs-string">"LParen"</span> <span class="hljs-comment"># (</span>
+    <span class="hljs-attr">RParen</span> = <span class="hljs-string">"RParen"</span> <span class="hljs-comment"># )</span>
+    <span class="hljs-attr">NotOp</span> = <span class="hljs-string">"NotOp"</span> <span class="hljs-comment"># !</span>
+    <span class="hljs-attr">AndOp</span> = <span class="hljs-string">"AndOp"</span> <span class="hljs-comment"># &amp;</span>
+    <span class="hljs-attr">OrOp</span> = <span class="hljs-string">"OrOp"</span> <span class="hljs-comment"># |</span>
+    <span class="hljs-attr">ImpliesOp</span> = <span class="hljs-string">"ImpliesOp"</span> <span class="hljs-comment"># -&gt;</span>
+    <span class="hljs-attr">BiconditionalOp</span> = <span class="hljs-string">"BiconditionalOp"</span> <span class="hljs-comment"># &lt;-&gt;</span>
+    <span class="hljs-attr">Variable</span> = <span class="hljs-string">"Variable"</span> <span class="hljs-comment"># A-Z Upper case</span>
+    <span class="hljs-attr">Eof</span> = <span class="hljs-string">"Eof"</span> <span class="hljs-comment"># The endline character (depends on stdin)</span>
+</code></pre>
+<h2 id="cart-algorithm">CART Algorithm</h2>
+<p>CART is the acronym of <strong>Classification And Regression Tree</strong></p>
+<h3 id="example-cart">Example CART</h3>
+<p>To make everything clearer and make</p>
+<h3 id="code-cart">Code CART</h3>
+<p>Now </p>
