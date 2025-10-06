@@ -12,7 +12,10 @@
         <div class="section_background" id="section_background_header">
             <div id="main_div_header">
                 <!-- Profile Picture -->
-                <img src="../../img/pfp/pfp_original.jpg" id="PFP_fixed" alt="Profile Picture">
+                <div id="PFP_ring">
+                    <img src="../../img/pfp/satoshi.png" id="PFP_fixed" alt="Profile Picture">
+                </div>
+
 
                 <!-- Highest part of the header -->
                 <div id="top_nav_header">
@@ -41,7 +44,10 @@
                             <img src="../../img/header/top_navbar/lupa.png" alt="Search icon">
                         </div>
 
-                        <img src="../../img/pfp/pfp_original.jpg" class="top_header_right_element" id="PFP_header_right">
+                        <div id="PFP_header_ring">
+                        <img src="../../img/pfp/pfp_original.jpg" id="PFP_header_right" alt="Profile Picture">
+                        </div>
+
 
                         <div id="tweet_button" class="top_header_right_element">
                             <img src="../../img/header/top_navbar/feather-pen-with-frame-svgrepo-com.svg" alt="Tweet icon">
@@ -82,53 +88,75 @@
         <div class="section_background" id="section_background_main">
             <div id="main_div_main">
                 <!-- Left part of the main -->
-                <div >
-                    <div>
+                <div id="left_grid_main">
+                    <div id="name_verified_div">
                         <p>asier</p>
-                        <img>
+                        <img src="../../img/main/verificar.png" alt="Icon verified">
                     </div>
-                    <p>@194aac</p>
-                    <p>student AI + CS</p>
+                    <p id="arroba_name">@194aac</p>
+                    <p id="description_profile">hello, im asier 🎲 nice to meet you 🎲 20 🎲 student, AI + CS</p>
 
-                    <div>
-                        <div>
-                            <img>
+                    <div id="info_profile">
+                        <div class="info_item">
+                            <img src="../../img/main/localizacion.png" alt="Icon location">
                             <p>Galicia, Spain</p>
+                        </div>
 
-                            <img>
-                            <p>asier.com</p>
+                        <div class="info_item">
+                            <img id="icon_link" src="../../img/main/enlace.png" alt="Icon link">
+                            <p><a href="https://www.flaticon.es/">flaticon.es ty!</a></p>
+                        </div>
 
-                            <img>
-                            <p>Joined September 30 2025</p>
+                        <div class="info_item">
+                            <img src="../../img/main/reloj-de-pared.png" alt="Icon clock">
+                            <p>Joined September 30, 2025</p>
+                        </div>
+
+                        <div class="info_item">
+                            <img id="icon_born" src="../../img/main/contento.png" alt="Icon born">
+                            <p>Born 21 February</p>
                         </div>
                     </div>
 
-                    <p>Tweet to asier</p>
+                    <div id="write_tweet_profile">
+                        <p>Tweet to asier 🔥🔥🔥</p>
+                    </div>
 
-                    <div>
-                        <div>
-                            <img>
+                    <div id="pictures_grid_profile_div">
+                        <div id="pictures_grid_profile">
+                            <img src="../../img/main/camara.png" alt="Icon camera">
                             <p>Photos and videos</p>
                         </div>
 
-                        <div>
-                            <div>
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <img src="" alt="">
+                        <div id="pictures_grid_1_profile">
+                            <div class="columna">
+                                <img src="../../img/main/grid_images/1.jpg" alt="Picture 1">
                             </div>
+                            <div class="columna">
+                                <img src="../../img/main/grid_images/2.jpg" alt="Picture 2">
+                            </div>
+                            <div class="columna">
+                                <img src="../../img/main/grid_images/3.jpg" alt="Picture 3">
+                            </div>
+                        </div>
 
-                            <div>
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <img src="" alt="">
+                        <div id="pictures_grid_2_profile">
+                            <div class="columna">
+                                <img src="../../img/main/grid_images/4.jpg" alt="Picture 4">
+                            </div>
+                            <div class="columna">
+                                <img src="../../img/main/grid_images/5.jpg" alt="Picture 5">
+                            </div>
+                            <div class="columna">
+                                <img src="../../img/main/grid_images/6.jpg" alt="Picture 6">
                             </div>
                         </div>
                     </div>
+
                 </div>
 
                 <!-- Medium part of the main -->
-                <div>
+                <div id="medium_grid_main">
 
                     <!-- Navbar of the main-->
                     <div>
@@ -138,14 +166,14 @@
                     </div>
 
                     <!-- Tweets -->
-                    <div>
-                        <div>
+                    <div id="tweets_main_div">
+                        <div class="tweet">
                             <img>
                         </div>
 
-                        <div>
-                            <div>
-                                <div>
+                        <div class="tweet">
+                            <div class="tweet_info">
+                                <div class="tweet_header">
                                     <p>asier</p>
                                     <img>
                                 </div>
@@ -159,18 +187,18 @@
                                 i love deep tech, maths and finance
                             </p>
 
-                            <div>
-                                <div>
+                            <div class="tweet_actions">
+                                <div class="action">
                                     <img>
                                     <p>1</p>
                                 </div>
 
-                                <div>
+                                <div class="action">
                                     <img>
                                     <p>1</p>
                                 </div>
 
-                                <div>
+                                <div class="action">
                                     <img>
                                     <p>1</p>
                                 </div>
@@ -179,13 +207,13 @@
                             </div>
                         </div>
 
-                        <div>
+                        <div class="tweet">
                             <img>
                         </div>
                     </div>
                 </div>
 
-                <div>
+                <div id="div_form">
                     <!-- Left part of the form -->
                     <div>
                         <img>
@@ -225,7 +253,7 @@
                 </div>
 
                 <!-- Right part of the main -->
-                <div>
+                <div id="right_grid_main">
                     <div>
                         <p>You may also like</p>
 
@@ -284,7 +312,7 @@
 
                     <div class="div_grid_footer">
                         <p>About</p>
-                        <p id="about_footer">This website is a tribute to the finest days of the internet and little piece of me.</p>
+                        <p id="about_footer">This website is a tribute to the finest days of the internet. A throwback to the good times.</p>
                     </div>
 
                     <div class="div_grid_footer">
@@ -315,7 +343,7 @@
                 </div>
 
                 <!-- Bottom part of the footer -->
-                <p id="copyright_p">Copyright © 2026 - Asier Acuña. All right reserved.</p>
+                <p id="copyright_p">Copyright © 2026 - Asier Acuña Casal. All rights reserved.</p>
             </div>
         </div>
     </footer>

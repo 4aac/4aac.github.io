@@ -49,3 +49,82 @@ body::-webkit-scrollbar-thumb:active {
   scrollbar-width: thin;
   scrollbar-color: var(--scroll-thumb) var(--scroll-track);
 }
+
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin{
+  from{ --angle: 0deg; }
+  to{ --angle: 360deg; }
+}
+
+
+#PFP_ring::before,
+#PFP_ring::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  border-radius: 14px;
+  z-index: -1;
+  background-image: conic-gradient(from var(--angle), var(--twitter-blue), var(--twitter-blue-dark), #f9efa7, #81b77e, #298a5a, #0b6c4f, var(--twitter-blue));
+
+  padding: 3px;
+  box-sizing: border-box;
+  animation: 7s spin linear infinite;
+}
+
+#PFP_ring::before{
+  filter: blur(1.5rem);
+  opacity: 0.45;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
+
+#PFP_header_ring::before,
+#PFP_header_ring::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 3px);
+  height: calc(100% + 3px);
+  border-radius: 7px;
+  z-index: 1;
+  background-image: conic-gradient(from var(--angle),
+    var(--twitter-blue),
+    var(--twitter-blue-dark),
+    rgb(118, 223, 209),
+    var(--twitter-blue)
+  );
+  animation: spin 4s linear infinite;
+  box-sizing: border-box;
+}
+
+#PFP_header_ring::before {
+  filter: blur(0.6rem);
+  opacity: 0.45;
+}
+
+#PFP_header_ring:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
