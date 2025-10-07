@@ -6,18 +6,19 @@
     <link rel="stylesheet" href="../css/styles_index.css">
     <link rel="stylesheet" href="../css/ai_generated.css">
     <link rel="stylesheet" href="../css/styles_footer.css">
+    <link rel="stylesheet" href="../css/styles_header.css">
 </head>
 <body>
+    <!-- HEADER -->
     <header>
         <div class="section_background" id="section_background_header">
             <div id="main_div_header">
-                <!-- Profile Picture -->
+                <!-- PFP -->
                 <div id="PFP_ring">
                     <img src="../../img/pfp/satoshi.png" id="PFP_fixed" alt="Profile Picture">
                 </div>
 
-
-                <!-- Highest part of the header -->
+                <!-- TOP NAV -->
                 <div id="top_nav_header">
                     <div id="top_header_left">
                         <div class="top_nav_left_icons">
@@ -31,7 +32,7 @@
                         </div>
 
                         <div class="top_nav_left_icons">
-                            <img src="../../img/header/top_navbar/mensaje-de-texto.png">
+                            <img src="../../img/header/top_navbar/mensaje-de-texto.png" alt="Message icon">
                             <p>Messages</p>
                         </div>
                     </div>
@@ -45,9 +46,8 @@
                         </div>
 
                         <div id="PFP_header_ring">
-                        <img src="../../img/pfp/pfp_original.jpg" id="PFP_header_right" alt="Profile Picture">
+                            <img src="../../img/pfp/satoshi.png" id="PFP_header_right" alt="Profile Picture">
                         </div>
-
 
                         <div id="tweet_button" class="top_header_right_element">
                             <img src="../../img/header/top_navbar/feather-pen-with-frame-svgrepo-com.svg" alt="Tweet icon">
@@ -56,12 +56,12 @@
                     </div>
                 </div>
 
-                <!-- Middle part of the header -->
+                <!-- VIDEO HEADER -->
                 <div id="middle_video_header">
                     <img src="../../img/header/Loop Money GIF.gif" alt="Video from the header">
                 </div>
 
-                <!-- Bottom part of the header-->
+                <!-- NAV BAR -->
                 <nav>
                     <ul>
                         <li>About Me</li>
@@ -75,7 +75,7 @@
                         <img class="sun_moon_icons" id="moon_icon" src="../../img/header/top_navbar/luna.png" alt="Moon icon">
 
                         <div id="following_button">
-                            <img id="check_nav_right_icon" src="../../img/header/top_navbar/cheque.png" alt="Moon icon">
+                            <img id="check_nav_right_icon" src="../../img/header/top_navbar/cheque.png" alt="Check icon">
                             <p>Following</p>
                         </div>
                     </div>
@@ -84,10 +84,11 @@
         </div>
     </header>
 
+    <!-- MAIN -->
     <main>
         <div class="section_background" id="section_background_main">
             <div id="main_div_main">
-                <!-- Left part of the main -->
+                <!-- LEFT GRID -->
                 <div id="left_grid_main">
                     <div id="name_verified_div">
                         <p>asier</p>
@@ -122,6 +123,7 @@
                         <p>Tweet to asier 🔥🔥🔥</p>
                     </div>
 
+                    <!-- GRID DE FOTOS -->
                     <div id="pictures_grid_profile_div">
                         <div id="pictures_grid_profile">
                             <img src="../../img/main/camara.png" alt="Icon camera">
@@ -152,142 +154,236 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
-                <!-- Medium part of the main -->
+                <!-- MEDIUM GRID -->
                 <div id="medium_grid_main">
-
-                    <!-- Navbar of the main-->
-                    <div>
+                    <div id="navbar_main">
                         <p>Tweets</p>
                         <p>Tweets & replies</p>
                         <p>Photos & videos</p>
                     </div>
 
-                    <!-- Tweets -->
-                    <div id="tweets_main_div">
-                        <div class="tweet">
-                            <img>
-                        </div>
+                    <!-- TWEETS -->
+                    <div class="tweet">
+                        <img class="tweet_pfp" src="../../img/pfp/satoshi.png" alt="Profile picture tweet">
 
-                        <div class="tweet">
-                            <div class="tweet_info">
-                                <div class="tweet_header">
-                                    <p>asier</p>
-                                    <img>
-                                </div>
-                                <p>@194aac</p>
-                                <p>4h</p>
-                            </div>
+                        <div class="text_tweet">
+                            <div class="tweet_header">asier <span class="tweet_handle">@194aac</span></div>
 
-                            <p>
+                            <div class="tweet_content">
                                 hello! <br>
                                 im asier and im a computer science and artificial intelligence student from Spain <br>
                                 i love deep tech, maths and finance
-                            </p>
+                            </div>
 
                             <div class="tweet_actions">
-                                <div class="action">
-                                    <img>
-                                    <p>1</p>
-                                </div>
-
-                                <div class="action">
-                                    <img>
-                                    <p>1</p>
-                                </div>
-
-                                <div class="action">
-                                    <img>
-                                    <p>1</p>
-                                </div>
-
-                                <img>
+                                <div class="action"><img src="../../img/main/compartir.png"><p>5</p></div>
+                                <div class="action"><img src="../../img/main/forma-de-corazon-negro-para-san-valentin.png"><p>42</p></div>
+                                <div class="action"><img src="../../img/main/estrella-en-negro-de-forma-de-cinco-puntas.png"><p>11</p></div>
+                                <img src="../../img/main/mas.png" alt="More actions">
                             </div>
                         </div>
 
-                        <div class="tweet">
-                            <img>
+                        <img class="icon_world_tweet" src="../../img/main/red-mundial.png" alt="World icon">
+                    </div>
+
+                    <div class="tweet">
+                        <img class="tweet_pfp" src="../../img/pfp/satoshi.png" alt="Profile picture tweet">
+
+                        <div class="text_tweet">
+                            <div class="tweet_header">asier <span class="tweet_handle">@194aac</span></div>
+
+                            <div class="tweet_content">
+                                Just finished a cool AI project! <br>
+                                Can't wait to share it with everyone.
+                            </div>
+
+                            <div class="tweet_actions">
+                                <div class="action"><img src="../../img/main/compartir.png"><p>5</p></div>
+                                <div class="action"><img src="../../img/main/forma-de-corazon-negro-para-san-valentin.png"><p>12</p></div>
+                                <div class="action"><img src="../../img/main/estrella-en-negro-de-forma-de-cinco-puntas.png"><p>3</p></div>
+                                <img src="../../img/main/mas.png" alt="More actions">
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div id="div_form">
-                    <!-- Left part of the form -->
-                    <div>
-                        <img>
+                        <img class="icon_world_tweet" src="../../img/main/red-mundial.png" alt="World icon">
                     </div>
 
-                    <!-- Middle part of the form -->
-                    <div>
-                        <form action="#" method="post">
-                            <input name="email" type="email" placeholder="email"> <br>
-                            <input name="subject" type="name" placeholder="subject"> <br>
+                    <div class="tweet">
+                        <img class="tweet_pfp" src="../../img/pfp/satoshi.png" alt="Profile picture tweet">
 
-                            <select name="topic" >
-                                <option value="" disabled selected>choose a topic</option>
-                                <option value="Portero">just wanna talk</option>
-                                <option value="Defensa">work</option>
-                                <option value="Medio">research</option>
-                                <option value="Delantero">other</option>
-                            </select> <br>
+                        <div class="text_tweet">
+                            <div class="tweet_header">asier <span class="tweet_handle">@194aac</span></div>
 
-                            <textarea name="text" placeholder="write something..." rows="3" cols="30"></textarea> <br>
+                            <div class="tweet_content">
+                                Learning more about finance and crypto trends. <br>
+                                Exciting times ahead!
+                            </div>
 
-                            <input type="submit" value="tweet">
-                        </form>
+                            <div class="tweet_actions">
+                                <div class="action"><img src="../../img/main/compartir.png"><p>2</p></div>
+                                <div class="action"><img src="../../img/main/forma-de-corazon-negro-para-san-valentin.png"><p>8</p></div>
+                                <div class="action"><img src="../../img/main/estrella-en-negro-de-forma-de-cinco-puntas.png"><p>1</p></div>
+                                <img src="../../img/main/mas.png" alt="More actions">
+                            </div>
+                        </div>
+
+                        <img class="icon_world_tweet" src="../../img/main/red-mundial.png" alt="World icon">
+                    </div>
+
+                    <div class="tweet">
+                        <img class="tweet_pfp" src="../../img/pfp/satoshi.png" alt="Profile picture tweet">
+
+                        <div class="text_tweet">
+                            <div class="tweet_header">asier <span class="tweet_handle">@194aac</span></div>
+
+                            <div class="tweet_content">
+                                Check out this amazing math trick I found today! <br>
+                                Really blew my mind.
+                            </div>
+
+                            <div class="tweet_actions">
+                                <div class="action"><img src="../../img/main/compartir.png"><p>3</p></div>
+                                <div class="action"><img src="../../img/main/forma-de-corazon-negro-para-san-valentin.png"><p>7</p></div>
+                                <div class="action"><img src="../../img/main/estrella-en-negro-de-forma-de-cinco-puntas.png"><p>2</p></div>
+                                <img src="../../img/main/mas.png" alt="More actions">
+                            </div>
+                        </div>
+
+                        <img class="icon_world_tweet" src="../../img/main/red-mundial.png" alt="World icon">
+                    </div>
+
+                    <div class="tweet">
+                        <img class="tweet_pfp" src="../../img/pfp/satoshi.png" alt="Profile picture tweet">
+
+                        <div class="text_tweet">
+                            <div class="tweet_header">asier <span class="tweet_handle">@194aac</span></div>
+
+                            <div class="tweet_content">
+                                Deep tech and AI discussions with friends today. <br>
+                                Learned so much!
+                            </div>
+
+                            <div class="tweet_actions">
+                                <div class="action"><img src="../../img/main/compartir.png"><p>4</p></div>
+                                <div class="action"><img src="../../img/main/forma-de-corazon-negro-para-san-valentin.png"><p>10</p></div>
+                                <div class="action"><img src="../../img/main/estrella-en-negro-de-forma-de-cinco-puntas.png"><p>3</p></div>
+                                <img src="../../img/main/mas.png" alt="More actions">
+                            </div>
+                        </div>
+
+                        <img class="icon_world_tweet" src="../../img/main/red-mundial.png" alt="World icon">
+                    </div>
+
+                    <!-- FORMULARIO -->
+                    <div id="div_form">
+                        <div>
+                            <img alt="">
+                        </div>
 
                         <div>
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                        </div>
-                    </div>
+                            <form action="#" method="post">
+                                <input name="email" type="email" placeholder="email"> <br>
+                                <input name="subject" type="text" placeholder="subject"> <br>
 
-                    <!-- Right part of the form -->
-                    <div>
-                        <img>
+                                <select name="topic">
+                                    <option value="" disabled selected>choose a topic</option>
+                                    <option value="Just talk">just wanna talk</option>
+                                    <option value="Work">work</option>
+                                    <option value="Research">research</option>
+                                    <option value="Other">other</option>
+                                </select> <br>
+
+                                <textarea name="text" placeholder="write something..." rows="3" cols="30"></textarea> <br>
+
+                                <input type="submit" value="tweet">
+                            </form>
+
+                            <div>
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                            </div>
+                        </div>
+
+                        <div>
+                            <img alt="">
+                        </div>
                     </div>
                 </div>
 
-                <!-- Right part of the main -->
+                <!-- RIGHT GRID -->
                 <div id="right_grid_main">
-                    <div>
-                        <p>You may also like</p>
+                    <div class="div_right_main">
+                        <p id="you_may_like">You may also like</p>
 
-                        <div>
-                            <!-- Social media 1 -->
-                            <div>
-                                <img>
-                                <div>
-                                    <p>Asier</p>
-                                    <p>@4aac</p>
-                                </div>
-                                <div>
-                                    <img>
-                                    <p>Follow</p>
+                        <div class="refresh_view_all">
+                            <p id="refresh">Refresh</p>
+                            <p>View all</p>
+                        </div>
+
+                        <div id="social_media_following">
+                            <div class="social_media_following_div">
+                                <img src="../../img/main/siguiendo_main/twitter.jpg" alt="Social media profile picture">
+                                <div class="div_profile_interest">
+                                    <div class="div_name_interest">
+                                        <p class="follow_interest_name">Asier</p>
+                                        <p class="follow_interest_follow">@4aac</p>
+                                    </div>
+                                    <div class="div_follow_interest">
+                                        <img src="../../img/main/amigo.png" alt="Icon follow">
+                                        <p>Follow</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Social media 2 -->
-                            <div>
-                                <img>
-                                <div>
-                                    <p>Asier</p>
-                                    <p>@4aac</p>
+                            <div class="social_media_following_div">
+                                <img src="../../img/main/siguiendo_main/twitter.jpg" alt="Social media profile picture">
+                                <div class="div_profile_interest">
+                                    <div class="div_name_interest">
+                                        <p class="follow_interest_name">Asier</p>
+                                        <p class="follow_interest_follow">@4aac</p>
+                                    </div>
+                                    <div class="div_follow_interest">
+                                        <img src="../../img/main/amigo.png" alt="Icon follow">
+                                        <p>Follow</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <img>
-                                    <p>Follow</p>
+                            </div>
+
+                            <div class="social_media_following_div">
+                                <img src="../../img/main/siguiendo_main/twitter.jpg" alt="Social media profile picture">
+                                <div class="div_profile_interest">
+                                    <div class="div_name_interest">
+                                        <p class="follow_interest_name">Asier</p>
+                                        <p class="follow_interest_follow">@4aac</p>
+                                    </div>
+                                    <div class="div_follow_interest">
+                                        <img src="../../img/main/amigo.png" alt="Icon follow">
+                                        <p>Follow</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="social_media_following_div">
+                                <img src="../../img/main/siguiendo_main/twitter.jpg" alt="Social media profile picture">
+                                <div class="div_profile_interest">
+                                    <div class="div_name_interest">
+                                        <p class="follow_interest_name">Asier</p>
+                                        <p class="follow_interest_follow">@4aac</p>
+                                    </div>
+                                    <div class="div_follow_interest">
+                                        <img src="../../img/main/amigo.png" alt="Icon follow">
+                                        <p>Follow</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Interests -->
-                    <div>
+                    <div id="div_right_main_interest" class="div_right_main">
                         <p>Interests</p>
                         <ul>
                             <li>Artificial Intelligence</li>
@@ -303,10 +399,10 @@
         </div>
     </main>
 
+    <!-- FOOTER -->
     <footer>
         <div class="section_background" id="section_background_footer">
             <div id="main_div_footer">
-                <!-- Higher part of the footer -->
                 <div id="footer_grid">
                     <img alt="Logo AAC" src="../../img/logo/logo_white.png" id="logo_footer">
 
@@ -342,7 +438,6 @@
                     </div>
                 </div>
 
-                <!-- Bottom part of the footer -->
                 <p id="copyright_p">Copyright © 2026 - Asier Acuña Casal. All rights reserved.</p>
             </div>
         </div>
