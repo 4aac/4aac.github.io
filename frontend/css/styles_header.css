@@ -99,10 +99,16 @@ nav {
   border-bottom: 2px solid var(--background-color);
 }
 
+nav li a {
+  text-decoration: none;
+  color: var(--twitter-blue);
+}
+
 #top_header_left {
   display: flex;
   justify-content: center;
   gap: 30px;
+  align-items: center;
 }
 
 .top_nav_left_icons {
@@ -198,6 +204,7 @@ nav {
   padding: 0 15px 0 15px;
   border-radius: 5px;
   background-color: var(--twitter-blue);
+  color: black;
   display: flex;
   align-items: center;
   height: 35px;
@@ -212,6 +219,10 @@ nav {
   height: 20px;
   width: auto;
   margin-right: 10px;
+}
+
+#top_header_right a:visited {
+  color: black;
 }
 
 #PFP_header_ring {
@@ -316,4 +327,14 @@ nav ul li:focus {
   font-size: 13px;
   color: var(--text-main);
   font-weight: bold;
+}
+
+.current_html {
+  text-decoration: none;
+  border-bottom: 2px solid var(--twitter-blue);
+  padding-bottom: 6px;
+}
+
+nav ul li:hover {
+  color: var(--text-main); /* si quieres que los demás cambien de color al pasar el cursor */
 }

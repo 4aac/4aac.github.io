@@ -69,6 +69,10 @@ html, body {
   margin-bottom: 5px;
 }
 
+.div_grid_footer ul li:hover {
+  text-decoration: underline;
+}
+
 .div_grid_footer img {
   width: 25px;
   height: auto;
@@ -83,4 +87,8 @@ html, body {
 #copyright_p {
   color: var(--text-secondary);
   font-size: 14px;
+}
+
+footer a:visited {
+  color: var(--text-secondary);
 }
