@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>AAC website</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/styles_index.css">
     <link rel="stylesheet" href="../css/ai_generated.css">
     <link rel="stylesheet" href="../css/styles_footer.css">
     <link rel="stylesheet" href="../css/styles_header.css">
+ 
+    <!-- FAVICONS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 </head>
+
 <body>
     <!-- HEADER -->
     <header>
@@ -21,20 +30,26 @@
                 <!-- TOP NAV -->
                 <div id="top_nav_header">
                     <div id="top_header_left">
-                        <div class="top_nav_left_icons">
-                            <img id="house_icon" src="../../img/header/top_navbar/casa.png" alt="House icon">
-                            <p>Home</p>
-                        </div>
+                        <a href="index.htm" target="_self">
+                            <div class="top_nav_left_icons">
+                                <img id="house_icon" src="../../img/header/top_navbar/casa.png" alt="House icon">
+                                <p>Home</p>
+                            </div>
+                        </a>
 
-                        <div class="top_nav_left_icons">
-                            <img id="doc_icon" src="../../img/header/top_navbar/documento.png" alt="Document icon">
-                            <p>CV</p>
-                        </div>
+                        <a href="../../cv.pdf" download="Asier_Acuna_CV.pdf" aria-label="Download CV" target="_blank">
+                            <div class="top_nav_left_icons">
+                                <img id="doc_icon" src="../../img/header/top_navbar/documento.png" alt="Document icon">
+                                <p>CV</p>
+                            </div>
+                        </a>
 
-                        <div class="top_nav_left_icons">
-                            <img src="../../img/header/top_navbar/mensaje-de-texto.png" alt="Message icon">
-                            <p>Messages</p>
-                        </div>
+                        <a href="#div_form">
+                            <div class="top_nav_left_icons">
+                                <img src="../../img/header/top_navbar/mensaje-de-texto.png" alt="Message icon">
+                                <p>Messages</p>
+                            </div>
+                        </a>
                     </div>
 
                     <img src="../../img/logo/logo_white.png" id="top_header_logo" alt="Logo">
@@ -49,14 +64,16 @@
                             <img src="../../img/pfp/satoshi.png" id="PFP_header_right" alt="Profile Picture">
                         </div>
 
-                        <div id="tweet_button" class="top_header_right_element">
-                            <img src="../../img/header/top_navbar/feather-pen-with-frame-svgrepo-com.svg" alt="Tweet icon">
-                            <p>Tweet</p>
-                        </div>
+                        <a href="#div_form">
+                            <div id="tweet_button" class="top_header_right_element">
+                                <img src="../../img/header/top_navbar/feather-pen-with-frame-svgrepo-com.svg" alt="Tweet icon">
+                                <p>Tweet</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
-                <!-- VIDEO HEADER -->
+                <!-- GIF HEADER -->
                 <div id="middle_video_header">
                     <img src="../../img/header/Loop Money GIF.gif" alt="Video from the header">
                 </div>
@@ -64,10 +81,10 @@
                 <!-- NAV BAR -->
                 <nav>
                     <ul>
-                        <li>About Me</li>
-                        <li>Projects</li>
-                        <li>Blog</li>
-                        <li>Miscellaneous</li>
+                        <li class="current_html"><a href="index.htm">About Me</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="miscellaneous.html">Miscellaneous</a></li>
                     </ul>
 
                     <div id="nav_right">
@@ -88,6 +105,7 @@
     <main>
         <div class="section_background" id="section_background_main">
             <div id="main_div_main">
+
                 <!-- LEFT GRID -->
                 <div id="left_grid_main">
                     <div id="name_verified_div">
@@ -119,9 +137,11 @@
                         </div>
                     </div>
 
-                    <div id="write_tweet_profile">
-                        <p>Tweet to asier 🔥🔥🔥</p>
-                    </div>
+                    <a href="#div_form">
+                        <div id="write_tweet_profile">
+                            <p>Tweet to asier 🔥🔥🔥</p>
+                        </div>
+                    </a>
 
                     <!-- GRID DE FOTOS -->
                     <div id="pictures_grid_profile_div">
@@ -165,15 +185,19 @@
                     </div>
 
                     <!-- TWEETS -->
+                    <!-- Tweet 1 -->
                     <div class="tweet">
                         <img class="tweet_pfp" src="../../img/pfp/satoshi.png" alt="Profile picture tweet">
 
                         <div class="text_tweet">
-                            <div class="tweet_header">asier <span class="tweet_handle">@194aac</span></div>
+                            <div class="tweet_header_handle">
+                                <p class="tweet_header">asier</p>
+                                <p class="tweet_handle">@194aac</p>
+                            </div>
 
                             <div class="tweet_content">
-                                hello! <br>
-                                im asier and im a computer science and artificial intelligence student from Spain <br>
+                                hello! 🫡🫡😉 <br>
+                                im asier and im a computer science 💻 and artificial intelligence 🤖 student from Spain <br>
                                 i love deep tech, maths and finance
                             </div>
 
@@ -188,15 +212,18 @@
                         <img class="icon_world_tweet" src="../../img/main/red-mundial.png" alt="World icon">
                     </div>
 
+                    <!-- Tweet 2 -->
                     <div class="tweet">
-                        <img class="tweet_pfp" src="../../img/pfp/satoshi.png" alt="Profile picture tweet">
+                        <img class="tweet_pfp" src="../../img/pfp/482487657_655582316980218_4106058270025249264_n.jpg" alt="Profile picture tweet">
 
                         <div class="text_tweet">
-                            <div class="tweet_header">asier <span class="tweet_handle">@194aac</span></div>
+                            <div class="tweet_header_handle">
+                                <p class="tweet_header">University of Santiago de Compostela</p>
+                                <p class="tweet_handle">@USC</p>
+                            </div>
 
                             <div class="tweet_content">
-                                Just finished a cool AI project! <br>
-                                Can't wait to share it with everyone.
+                                Asier is majoring in AI with a concentration in neuroengineering. <br> Some of the relevent coursework is: Machine Learning, Deep Learning, Optimization, Statisctics, Databases...
                             </div>
 
                             <div class="tweet_actions">
@@ -207,18 +234,21 @@
                             </div>
                         </div>
 
-                        <img class="icon_world_tweet" src="../../img/main/red-mundial.png" alt="World icon">
+                        <img class="icon_world_tweet" src="../../img/main/es.png" alt="World icon">
                     </div>
 
+                    <!-- Tweet 3 -->
                     <div class="tweet">
-                        <img class="tweet_pfp" src="../../img/pfp/satoshi.png" alt="Profile picture tweet">
+                        <img class="tweet_pfp" src="../../img/pfp/VTH5EkW2_400x400.jpg" alt="Profile picture tweet">
 
                         <div class="text_tweet">
-                            <div class="tweet_header">asier <span class="tweet_handle">@194aac</span></div>
+                            <div class="tweet_header_handle">
+                                <p class="tweet_header">University of Deusto</p>
+                                <p class="tweet_handle">@UDeusto</p>
+                            </div>
 
                             <div class="tweet_content">
-                                Learning more about finance and crypto trends. <br>
-                                Exciting times ahead!
+                                Asier also studied AI, Data Science and Computer Science as a visiting student. <br> Relevant coursework: Aprendizaje Automático Avanzado, Metaheurísticas, Ingeniería Web, Modelado Avanzado...
                             </div>
 
                             <div class="tweet_actions">
@@ -229,18 +259,21 @@
                             </div>
                         </div>
 
-                        <img class="icon_world_tweet" src="../../img/main/red-mundial.png" alt="World icon">
+                        <img class="icon_world_tweet" src="../../img/main/es.png" alt="World icon">
                     </div>
 
+                    <!-- Tweet 4 -->
                     <div class="tweet">
                         <img class="tweet_pfp" src="../../img/pfp/satoshi.png" alt="Profile picture tweet">
 
                         <div class="text_tweet">
-                            <div class="tweet_header">asier <span class="tweet_handle">@194aac</span></div>
+                            <div class="tweet_header_handle">
+                                <p class="tweet_header">asier</p>
+                                <p class="tweet_handle">@194aac</p>
+                            </div>
 
                             <div class="tweet_content">
-                                Check out this amazing math trick I found today! <br>
-                                Really blew my mind.
+                                I like to know new people, if you are interested we can chat 😁⬇️⬇️⬇️
                             </div>
 
                             <div class="tweet_actions">
@@ -254,62 +287,48 @@
                         <img class="icon_world_tweet" src="../../img/main/red-mundial.png" alt="World icon">
                     </div>
 
-                    <div class="tweet">
-                        <img class="tweet_pfp" src="../../img/pfp/satoshi.png" alt="Profile picture tweet">
-
-                        <div class="text_tweet">
-                            <div class="tweet_header">asier <span class="tweet_handle">@194aac</span></div>
-
-                            <div class="tweet_content">
-                                Deep tech and AI discussions with friends today. <br>
-                                Learned so much!
-                            </div>
-
-                            <div class="tweet_actions">
-                                <div class="action"><img src="../../img/main/compartir.png"><p>4</p></div>
-                                <div class="action"><img src="../../img/main/forma-de-corazon-negro-para-san-valentin.png"><p>10</p></div>
-                                <div class="action"><img src="../../img/main/estrella-en-negro-de-forma-de-cinco-puntas.png"><p>3</p></div>
-                                <img src="../../img/main/mas.png" alt="More actions">
-                            </div>
-                        </div>
-
-                        <img class="icon_world_tweet" src="../../img/main/red-mundial.png" alt="World icon">
-                    </div>
 
                     <!-- FORMULARIO -->
                     <div id="div_form">
-                        <div>
-                            <img alt="">
+                        <div class="contact_side contact_side--left">
+                            <img src="../../img/pfp/satoshi.png" alt="Avatar" class="contact_avatar">
                         </div>
 
-                        <div>
-                            <form action="#" method="post">
-                                <input name="email" type="email" placeholder="email"> <br>
-                                <input name="subject" type="text" placeholder="subject"> <br>
+                        <div class="contact_form_wrapper">
+                            <form class="contact_form" action="/" method="post" autocomplete="off">
+                                <div class="form_row form_row--top">
+                                    <input class="input input--email" name="email" type="email" placeholder="your email" required>
+                                    <input class="input input--subject" name="subject" type="text" placeholder="subject">
+                                </div>
 
-                                <select name="topic">
+                                <div class="form_row">
+                                    <select class="select_topic" name="topic" required>
                                     <option value="" disabled selected>choose a topic</option>
                                     <option value="Just talk">just wanna talk</option>
                                     <option value="Work">work</option>
                                     <option value="Research">research</option>
                                     <option value="Other">other</option>
-                                </select> <br>
+                                    </select>
+                                </div>
 
-                                <textarea name="text" placeholder="write something..." rows="3" cols="30"></textarea> <br>
+                                <div class="form_row">
+                                    <textarea class="textarea_text" name="text" placeholder="write something... (580 chars max)" rows="4" maxlength="580"></textarea>
+                                </div>
 
-                                <input type="submit" value="tweet">
+                                <div class="form_row form_row--actions">
+                                    <div class="form_icons">
+                                    <img src="../../img/main/imagen.png" alt="image" title="attach image">
+                                    <img src="../../img/main/gif.png" alt="gif" title="add gif">
+                                    <img src="../../img/main/emoji.png" alt="emoji" title="emoji">
+                                    <img src="../../img/main/votacion.png" alt="poll" title="poll">
+                                    </div>
+
+                                    <div class="form_submit_wrap">
+                                        <input class="btn_tweet" type="submit" value="Tweet">
+                                    </div>
+                                </div>
                             </form>
-
-                            <div>
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                            </div>
-                        </div>
-
-                        <div>
-                            <img alt="">
+                            
                         </div>
                     </div>
                 </div>
@@ -324,60 +343,74 @@
                             <p>View all</p>
                         </div>
 
+                        
                         <div id="social_media_following">
+                            
+                            <!-- TWITTER -->
                             <div class="social_media_following_div">
-                                <img src="../../img/main/siguiendo_main/twitter.jpg" alt="Social media profile picture">
+                                <img src="../../img/main/anime-animated-wallpaper-preview.jpg" alt="Social media profile picture">
                                 <div class="div_profile_interest">
                                     <div class="div_name_interest">
-                                        <p class="follow_interest_name">Asier</p>
-                                        <p class="follow_interest_follow">@4aac</p>
+                                        <p class="follow_interest_name">Twitter</p>
+                                        <p class="follow_interest_follow">@194aac</p>
                                     </div>
-                                    <div class="div_follow_interest">
-                                        <img src="../../img/main/amigo.png" alt="Icon follow">
-                                        <p>Follow</p>
-                                    </div>
+                                    <a href="https://x.com/194aac" target="_blank">
+                                        <div class="div_follow_interest">
+                                            <img src="../../img/main/amigo.png" alt="Icon follow">
+                                            <p>Follow</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
 
+                            <!-- LINKEDIN -->
                             <div class="social_media_following_div">
-                                <img src="../../img/main/siguiendo_main/twitter.jpg" alt="Social media profile picture">
+                                <img src="../../img/main/Hiei.jpg" alt="Social media profile picture">
                                 <div class="div_profile_interest">
                                     <div class="div_name_interest">
-                                        <p class="follow_interest_name">Asier</p>
-                                        <p class="follow_interest_follow">@4aac</p>
+                                        <p class="follow_interest_name">Linkedin</p>
+                                        <p class="follow_interest_follow">asierac</p>
                                     </div>
-                                    <div class="div_follow_interest">
-                                        <img src="../../img/main/amigo.png" alt="Icon follow">
-                                        <p>Follow</p>
+                                    <a href="https://www.linkedin.com/in/asierac/" target="_blank">
+                                        <div class="div_follow_interest">
+                                            <img src="../../img/main/amigo.png" alt="Icon follow">
+                                            <p>Follow</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- YOUTUBE -->
+                            <div class="social_media_following_div">
+                                <img src="../../img/main/13-sung-jin-woo-solo-leveling-1729794696.jpg" alt="Social media profile picture">
+                                <div class="div_profile_interest">
+                                    <div class="div_name_interest">
+                                        <p class="follow_interest_name">Youtube</p>
+                                        <p class="follow_interest_follow">@aac</p>
                                     </div>
+                                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1" target="_blank">
+                                        <div class="div_follow_interest">
+                                            <img src="../../img/main/amigo.png" alt="Icon follow">
+                                            <p>Follow</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
 
+                            <!-- INSTAGRAM -->
                             <div class="social_media_following_div">
-                                <img src="../../img/main/siguiendo_main/twitter.jpg" alt="Social media profile picture">
+                                <img src="../../img/main/6929dfd367b08fc26513a9e6e53977b6.jpg" alt="Social media profile picture">
                                 <div class="div_profile_interest">
                                     <div class="div_name_interest">
-                                        <p class="follow_interest_name">Asier</p>
-                                        <p class="follow_interest_follow">@4aac</p>
+                                        <p class="follow_interest_name">Instagram</p>
+                                        <p class="follow_interest_follow">@4sieeeer</p>
                                     </div>
-                                    <div class="div_follow_interest">
-                                        <img src="../../img/main/amigo.png" alt="Icon follow">
-                                        <p>Follow</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="social_media_following_div">
-                                <img src="../../img/main/siguiendo_main/twitter.jpg" alt="Social media profile picture">
-                                <div class="div_profile_interest">
-                                    <div class="div_name_interest">
-                                        <p class="follow_interest_name">Asier</p>
-                                        <p class="follow_interest_follow">@4aac</p>
-                                    </div>
-                                    <div class="div_follow_interest">
-                                        <img src="../../img/main/amigo.png" alt="Icon follow">
-                                        <p>Follow</p>
-                                    </div>
+                                    <a href="https://www.instagram.com/4sieeeer/" target="_blank">                                    
+                                        <div class="div_follow_interest">
+                                            <img src="../../img/main/amigo.png" alt="Icon follow">
+                                            <p>Follow</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -414,27 +447,28 @@
                     <div class="div_grid_footer">
                         <p>Website</p>
                         <ul>
-                            <li>About Me</li>
-                            <li>Projects</li>
-                            <li>Blog</li>
-                            <li>Miscellaneous</li>
+
+                            <li><a href="index.htm" target="_self">About Me</a></li>
+                            <li><a href="projects.html" target="_self">Projects</a></li>
+                            <li><a href="blog.html" target="_self">Blog</a></li>
+                            <li><a href="miscellaneous.html" target="_self">Miscellaneous</a></li>
                         </ul>
                     </div>
 
                     <div class="div_grid_footer">
                         <p>Information</p>
                         <ul>
-                            <li>Disclaimer</li>
-                            <li>Privacy</li>
+                            <li><a href="../html/footer/disclaimer.html" target="_blank">Disclaimer</a></li>
+                            <li><a href="../html/footer/privacy.html" target="_blank">Privacy</a></li>
                         </ul>
                     </div>
 
                     <div class="div_grid_footer">
                         <p>Connect with me:</p>
-                        <img src="../../img/footer/twitter-forma-negra.png" alt="Twitter logo">
-                        <img src="../../img/footer/linkedin.png" alt="Linkedin logo">
-                        <img src="../../img/footer/youtube.png" alt="Youtube logo">
-                        <img src="../../img/footer/sobre.png" alt="Email icon">
+                        <a href="https://x.com/194aac" target="_blank"><img src="../../img/footer/twitter-forma-negra.png" alt="Twitter logo"></a>
+                        <a href="https://www.linkedin.com/in/asierac/" target="_blank"><img src="../../img/footer/linkedin.png" alt="Linkedin logo"></a>
+                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1" target="_blank"><img src="../../img/footer/youtube.png" alt="Youtube logo"></a>
+                        <a href="mailto:asieracunacasal19@gmail.com"><img src="../../img/footer/sobre.png" alt="Email icon"></a>
                     </div>
                 </div>
 
