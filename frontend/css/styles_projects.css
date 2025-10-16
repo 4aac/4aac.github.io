@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Arimo:ital,wght@0,400..700;1,400..700&family=Oxanium:wght@200..800&display=swap');
+
+* {
+  margin: 0;
+  font-family: "Archivo", "Arimo", "Oxanium", sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+:root {
+  --background-color: #141d26;
+  --main-blue: #1b2836;
+  --text-main: #c9c9c9;
+  --text-secondary: #657684  ;
+  --twitter-blue: #459fb5;
+  --twitter-blue-secondary: #60c3df;
+  --twitter-blue-dark: #397788;
+  --like-red: #dd2e44;
+}
+
+.section_background {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.project_content h2 {
+    margin-bottom: 15px;
+}
+
+.project_content p {
+    margin-bottom: 15px;
+}
+
+.project_content img {
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.more_projects {
+  border: var(--accent_link) solid 2px;
+  padding: 0px 15px 0px 15px;
+  color: black;
+  max-width: 50px;
+  border-radius: 5px;
+  background-color: var(--twitter-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+}
+
+.more_projects:hover {
+  cursor: pointer;
+  background-color: var(--twitter-blue-secondary);
+}
