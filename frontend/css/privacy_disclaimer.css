@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Arimo:ital,wght@0,400..700;1,400..700&family=Oxanium:wght@200..800&display=swap');
+
+* {
+  margin: 0;
+  font-family: "Archivo", "Arimo", "Oxanium", sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+  background: var(--background-color, #141d26);
+  color: var(--text-main, #c9c9c9);
+}
+
+:root {
+  --background-color: #141d26;
+  --main-blue: #1b2836;
+  --text-main: #c9c9c9;
+  --text-secondary: #657684;
+  --twitter-blue: #459fb5;
+  --twitter-blue-secondary: #60c3df;
+  --twitter-blue-dark: #397788;
+  --like-red: #dd2e44;
+}
+
+a {
+  color: var(--twitter-blue-secondary);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(96,195,223,0.22);
+}
+
+a:hover {
+  color: var(--text-main);
+  border-bottom-style: solid;
+}
+
+/* header */
+header {
+  background: var(--main-blue);
+  border-bottom: 2px solid rgba(0,0,0,0.5);
+  padding: 12px 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+header h1 {
+  font-size: 20px;
+  color: var(--text-main);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+header img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+/* main / container */
+main {
+  padding: 36px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container_disclaimer {
+  width: 92%;
+  max-width: 980px;
+  background: rgba(27,40,54,0.03);
+  border: 1px solid rgba(0,0,0,0.45);
+  padding: 22px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* headings & text */
+.container_disclaimer h1,
+.container_disclaimer h2,
+.container_disclaimer h3,
+.container_disclaimer h4 {
+  color: var(--text-main);
+  margin: 10px 0;
+  line-height: 1.2;
+}
+
+.container_disclaimer h1 {
+  font-size: 26px;
+  text-align: center;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+
+.container_disclaimer h2 {
+  font-size: 18px;
+  color: var(--twitter-blue-secondary);
+  font-weight: 700;
+  margin-top: 14px;
+}
+
+.container_disclaimer h3 {
+  font-size: 16px;
+  color: var(--text-main);
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.container_disclaimer h4 {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+/* paragraphs */
+.container_disclaimer p {
+  color: var(--text-main);
+  font-size: 15px;
+  margin: 8px 0 12px 0;
+  line-height: 1.5;
+}
+
+/* footer */
+footer {
+  background: var(--main-blue);
+  border-top: 1px solid rgba(0,0,0,0.45);
+  color: var(--text-secondary);
+  padding: 18px 4%;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* small screens */
+@media (max-width: 720px) {
+  header {
+    padding: 10px 4%;
+  }
+
+  header h1 {
+    font-size: 16px;
+  }
+
+  .container_disclaimer {
+    width: 94%;
+    padding: 16px;
+  }
+
+  .container_disclaimer h1 { font-size: 20px; }
+  .container_disclaimer h2 { font-size: 16px; }
+  .container_disclaimer p { font-size: 14px; }
+}
