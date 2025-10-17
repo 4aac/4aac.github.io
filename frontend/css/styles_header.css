@@ -336,5 +336,130 @@ nav ul li:focus {
 }
 
 nav ul li:hover {
-  color: var(--text-main); /* si quieres que los demás cambien de color al pasar el cursor */
+  color: var(--text-main);
+}
+
+/* Tablet: 768px a 1023px */
+@media only screen and (max-width: 1023px) {
+  #PFP_ring {
+    display: none;
+  }
+
+  #top_header_left {
+    gap: 15px;
+  }
+
+  .top_nav_left_icons p {
+    font-size: 13px;
+  }
+
+  #search_bar p {
+    margin: 0 50px 0 0;
+  }
+
+  nav ul li {
+    font-size: 16px;
+    margin-right: 15px;
+  }
+
+  nav ul {
+    gap: 15px;
+  }
+}
+
+/* Móvil: 320px a 767px */
+@media only screen and (max-width: 767px) {
+  #PFP_ring {
+    display: none;
+  }
+
+  #top_nav_header {
+    height: auto;
+    padding: 8px 0;
+  }
+
+  #top_header_left {
+    gap: 8px;
+  }
+
+  .top_nav_left_icons p {
+    display: none;
+  }
+
+  .top_nav_left_icons img {
+    width: 18px;
+    margin-right: 0;
+  }
+
+  #top_header_logo {
+    height: 35px;
+  }
+
+  #top_header_right {
+    gap: 8px;
+  }
+
+  #search_bar {
+    display: none;
+  }
+
+  #tweet_button p {
+    display: none;
+  }
+
+  #tweet_button {
+    height: 30px;
+    padding: 0 10px;
+  }
+
+  #tweet_button img {
+    height: 16px;
+    margin-right: 0;
+  }
+
+  #PFP_header_right {
+    height: 30px;
+    width: 30px;
+  }
+
+  .top_header_right_element p {
+    display: none;
+  }
+
+  .top_header_right_element img {
+    height: 16px;
+    margin-right: 0;
+  }
+
+  .sun_moon_icons {
+    display: none;
+  }
+
+  #following_button {
+    display: none;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  nav ul {
+    position: static;
+    transform: none;
+    gap: 12px;
+  }
+
+  nav ul li {
+    font-size: 11px;
+    margin-right: 0;
+    white-space: nowrap;
+  }
+
+  #nav_right {
+    display: none;
+  }
+
+  #middle_video_header {
+    height: 100px;
+  }
 }
