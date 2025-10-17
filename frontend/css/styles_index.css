@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Arimo:ital,wght@0,400..700;1,400..700&family=Oxanium:wght@200..800&display=swap');
 
+/* ========================================
+   GENERAL STYLES
+   ======================================== */
+
 * {
   margin: 0;
   font-family: "Archivo", "Arimo", "Oxanium", sans-serif;
@@ -13,7 +17,7 @@ html, body {
   --background-color: #141d26;
   --main-blue: #1b2836;
   --text-main: #c9c9c9;
-  --text-secondary: #657684  ;
+  --text-secondary: #657684;
   --twitter-blue: #459fb5;
   --twitter-blue-secondary: #60c3df;
   --twitter-blue-dark: #397788;
@@ -28,7 +32,9 @@ a {
   text-decoration: none;
 }
 
-/* --- Main --- */
+/* ========================================
+   MAIN LAYOUT
+   ======================================== */
 
 #main_div_main {
   display: flex;
@@ -65,7 +71,9 @@ a {
   height: auto;
 }
 
-/* --- Center part of the Main --- */
+/* ========================================
+   MIDDLE COLUMN - TWEETS
+   ======================================== */
 
 #medium_grid_main {
   display: block;
@@ -79,7 +87,7 @@ a {
   border-top-right-radius: 5px;
   display: flex;
   align-items: center;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
 }
 
 #navbar_main p {
@@ -94,9 +102,10 @@ a {
 
 .tweet {
   border: 2px solid black;
+  border-top: none;
   background-color: var(--main-blue);
   display: grid;
-  grid-template-columns: 60px 1fr 20px;
+  grid-template-columns: 60px auto 20px;  /* Generatied by AI (I knew how to use a grid but not how to use grid-template) */
   gap: 10px;
   padding: 10px;
   align-items: start;
@@ -125,7 +134,7 @@ a {
 .tweet_header {
   font-weight: bold;
   color: var(--text-main);
-  margin: 0px 5px 5px 0px;
+  margin: 0 5px 5px 0;
 }
 
 .tweet_handle {
@@ -159,11 +168,12 @@ a {
 .icon_world_tweet {
   width: 15px;
   height: 15px;
-  justify-self: end;
+  justify-self: end;  /* Generatied by AI */
 }
 
-
-/* --- Left part Main --- */
+/* ========================================
+   LEFT COLUMN - PROFILE
+   ======================================== */
 
 #name_verified_div {
   display: flex;
@@ -173,7 +183,7 @@ a {
 #name_verified_div p {
   font-size: 25px;
   font-weight: bold;
-  margin: 0px 5px 5px 0px;
+  margin: 0 5px 5px 0;
   color: var(--text-main);
 }
 
@@ -218,14 +228,12 @@ a {
 
 #icon_link {
   height: 14px;
-  width: auto;
   margin-right: 14px;
   padding-left: 2px;
 }
 
 .info_item a {
   color: var(--twitter-blue-secondary);
-  text-decoration: none;
 }
 
 .info_item a:hover {
@@ -234,13 +242,12 @@ a {
 
 #icon_born {
   height: 17px;
-  width: auto;
   margin-right: 12px;
   padding-left: 1px;
 }
 
 #write_tweet_profile {
-  padding: 5px 10px 5px 10px;
+  padding: 5px 10px;
   width: 90%;
   height: 35px;
   border: black solid 2px;
@@ -261,58 +268,11 @@ a {
   cursor: pointer;
 }
 
+/* Profile Pictures Grid */
+
 #pictures_grid_profile_div {
   width: 100%;
 }
-
-#pictures_grid_profile {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-#pictures_grid_profile img {
-  margin-right: 15px;
-  width: 18px;
-  height: auto;
-}
-
-#pictures_grid_profile p {
-  color: var(--twitter-blue);
-}
-
-#pictures_grid_profile {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-#pictures_grid_profile img {
-  margin-right: 15px;
-  width: 18px;
-  height: auto;
-}
-
-#pictures_grid_profile p {
-  color: var(--twitter-blue);
-}
-
-#pictures_grid_profile {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-#pictures_grid_profile img {
-  margin-right: 15px;
-  width: 18px;
-  height: auto;
-}
-
-#pictures_grid_profile p {
-  color: var(--twitter-blue);
-}
-
 
 #pictures_grid_profile {
   display: flex;
@@ -346,7 +306,7 @@ a {
 .columna img {
   width: 100%;
   aspect-ratio: 1 / 1;  /* Generatied by AI */
-  object-fit: cover;  /* Generatied by AI */
+  object-fit: cover;
   border: 1px solid black;
   border-radius: 5px;
   transition: transform 0.2s ease;
@@ -358,8 +318,9 @@ a {
   z-index: 2;
 }
 
-
-/* --- Right part of the header --- */
+/* ========================================
+   RIGHT COLUMN - SUGGESTIONS & INTERESTS
+   ======================================== */
 
 .div_right_main {
   background-color: var(--main-blue);
@@ -393,9 +354,11 @@ a {
   margin-right: 20px;
 }
 
+/* Social Media Following */
+
 .social_media_following_div {
   display: flex;
-  align-items: center ;
+  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -403,7 +366,7 @@ a {
   height: 50px;
   width: auto;
   aspect-ratio: 1 / 1;  /* Generatied by AI */
-  object-fit: cover;  /* Generatied by AI */
+  object-fit: cover;
   border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
@@ -430,7 +393,7 @@ a {
 .div_follow_interest {
   display: flex;
   border-radius: 5px;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 10px;
   max-width: 60px;
   background: linear-gradient(180deg, var(--main-blue), var(--background-color));  
   align-items: center;
@@ -439,8 +402,7 @@ a {
 
 .div_follow_interest:hover {
   background: var(--background-color);
-  cursor: pointer; 
-  outline: solid 1px black;
+  cursor: pointer;
 }
 
 .div_follow_interest p {
@@ -456,6 +418,8 @@ a {
   border: none;
 }
 
+/* Interests Section */
+
 #div_right_main_interest p {
   color: var(--text-main);
   font-size: 20px;
@@ -463,15 +427,13 @@ a {
 }
 
 #div_right_main_interest ul {
-  text-decoration: none;
   list-style: none;
-  display: inline;
   padding: 0;
   margin: 0;
 }
 
 #div_right_main_interest li {
-  font-size: 15x;
+  font-size: 15px;
   color: var(--twitter-blue);
   margin-bottom: 5px;
 }
@@ -481,7 +443,10 @@ a {
   cursor: pointer;
 }
 
-/* Contenedor general */
+/* ========================================
+   CONTACT FORM
+   ======================================== */
+
 #div_form {
   display: flex;
   gap: 16px;
@@ -490,39 +455,36 @@ a {
   margin-top: 18px;
 }
 
-/* Lados (decorativos) */
 .contact_side {
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-}
-.contact_side img.contact_avatar {
-  width: 56px;
-  height:56px;
-  object-fit:cover;
-  border-radius:6px;
-  border:2px solid black;
-}
-.contact_side img.contact_logo {
-  width:40px;
-  height:40px;
-  opacity:0.9;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-/* Wrapper central del formulario */
+.contact_avatar {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid black;
+}
+
+.contact_logo {
+  width: 40px;
+  height: 40px;
+  opacity: 0.9;
+}
+
 .contact_form_wrapper {
   background-color: var(--main-blue);
   border: 2px solid black;
   padding: 12px;
   border-radius: 8px;
   display: flex;
-  flex-direction:column;
-  gap:10px;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
 }
-
-
-/* --- Form --- */
 
 .contact_form {
   display: flex;
@@ -537,7 +499,7 @@ a {
   align-items: center; 
 }
 
-.form_row--top { 
+.form_row_top { 
   gap: 8px; 
 }
 
@@ -548,25 +510,26 @@ a {
   border-radius: 6px;
   font-size: 14px;
   width: 100%;
+  color: var(--text-main);
   box-shadow: none;
 }
 
-.input--email { 
-  flex: 1 1 40%; 
+.input_email { 
+  flex: 1 1 40%;  /* Generatied by AI */
 }
 
-.input--subject { 
-  flex: 1 1 60%; 
+.input_subject { 
+  flex: 1 1 60%;  /* Generatied by AI */
 }
 
 .select_topic {
-  width:100%;
+  width: 100%;
   padding: 9px 10px;
-  border-radius:6px;
+  border-radius: 6px;
   background: var(--background-color);
   color: var(--text-main);
-  border:1px solid black;
-  font-size:14px;
+  border: 1px solid black;
+  font-size: 14px;
 }
 
 .textarea_text {
@@ -598,11 +561,12 @@ a {
   cursor: pointer;
   transition: transform .12s ease;
 }
+
 .form_icons img:hover { 
   transform: translateY(-2px); 
 }
 
-.form_row--actions {
+.form_row_actions {
   justify-content: space-between;
   align-items: center;
 }
@@ -625,4 +589,194 @@ a {
 
 .btn_tweet:hover {
   background-color: var(--twitter-blue-secondary);
+}
+
+/* Tablet: 768px a 1023px */
+@media only screen and (max-width: 1023px) {
+  #main_div_main {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 20px;
+  }
+
+  #left_grid_main {
+    width: 100%;
+    display: none;
+  }
+
+  #medium_grid_main {
+    width: 100%;
+  }
+
+  #right_grid_main {
+    width: 100%;
+    display: none;
+  }
+
+  #navbar_main p {
+    font-size: 16px;
+    margin-right: 20px;
+  }
+
+  .tweet {
+    grid-template-columns: 48px auto 15px;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .tweet_pfp {
+    width: 48px;
+    height: 48px;
+  }
+
+  .text_tweet {
+    font-size: 13px;
+  }
+
+  .tweet_header {
+    font-size: 13px;
+  }
+
+  .tweet_handle {
+    font-size: 12px;
+  }
+
+  .tweet_content {
+    margin-bottom: 8px;
+  }
+
+  .tweet_actions {
+    gap: 12px;
+  }
+
+  .tweet_actions img {
+    width: 16px;
+    height: 16px;
+  }
+
+  #div_form {
+    gap: 12px;
+    margin-top: 15px;
+  }
+
+  .contact_avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .contact_form_wrapper {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .input {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+
+  .select_topic {
+    padding: 7px 8px;
+    font-size: 13px;
+  }
+
+  .textarea_text {
+    min-height: 60px;
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .form_icons img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .btn_tweet {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
+/* Móvil: 320px a 767px */
+@media only screen and (max-width: 767px) {
+  #main_div_main {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    gap: 10px;
+  }
+
+  #left_grid_main {
+    width: 100%;
+    display: none;
+  }
+
+  #medium_grid_main {
+    width: 100%;
+  }
+
+  #right_grid_main {
+    width: 100%;
+    display: none;
+  }
+
+  #navbar_main {
+    padding: 6px 10px;
+  }
+
+  #navbar_main p {
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  .tweet {
+    grid-template-columns: 40px auto 10px;
+    gap: 5px;
+    padding: 5px;
+  }
+
+  .tweet_pfp {
+    width: 40px;
+    height: 40px;
+  }
+
+  .text_tweet {
+    font-size: 11px;
+    gap: 2px;
+  }
+
+  .tweet_header {
+    font-size: 11px;
+    margin: 0 3px 2px 0;
+  }
+
+  .tweet_handle {
+    font-size: 10px;
+  }
+
+  .tweet_content {
+    margin-bottom: 5px;
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .tweet_actions {
+    gap: 8px;
+    margin-top: 3px;
+  }
+
+  .tweet_actions .action {
+    gap: 2px;
+    font-size: 10px;
+  }
+
+  .tweet_actions img {
+    width: 12px;
+    height: 12px;
+  }
+
+  .icon_world_tweet {
+    width: 10px;
+    height: 10px;
+  }
 }
