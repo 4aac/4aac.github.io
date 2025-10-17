@@ -67,8 +67,6 @@ main {
 .container_disclaimer {
   width: 92%;
   max-width: 980px;
-  background: rgba(27,40,54,0.03);
-  border: 1px solid rgba(0,0,0,0.45);
   padding: 22px;
   border-radius: 8px;
   box-sizing: border-box;
@@ -81,7 +79,6 @@ main {
 .container_disclaimer h4 {
   color: var(--text-main);
   margin: 10px 0;
-  line-height: 1.2;
 }
 
 .container_disclaimer h1 {
@@ -117,7 +114,6 @@ main {
   color: var(--text-main);
   font-size: 15px;
   margin: 8px 0 12px 0;
-  line-height: 1.5;
 }
 
 /* footer */
