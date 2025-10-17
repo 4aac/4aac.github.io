@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Arimo:ital,wght@0,400..700;1,400..700&family=Oxanium:wght@200..800&display=swap');
 
+/* ========================================
+   GENERAL STYLES
+   ======================================== */
+
 * {
   margin: 0;
   font-family: "Archivo", "Arimo", "Oxanium", sans-serif;
@@ -28,56 +32,79 @@ a {
   text-decoration: none;
 }
 
-.blog_content h2 {
-    margin-bottom: 15px;
-}
-
-.blog_content h2 a {
-   color: var(--text-main);
-}
-
-.blog_content h2 a:visited {
-    color: var(--text-main);
-}
-
-.more_projects {
-  border: var(--accent_link) solid 2px;
-  padding: 0px 15px 0px 15px;
-  color: black;
-  max-width: 50px;
-  border-radius: 5px;
-  background-color: var(--twitter-blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 35px;
-}
-
-.more_projects:hover {
-  cursor: pointer;
-  background-color: var(--twitter-blue-secondary);
-}
-
 .tweet_content ol {
-    color: var(--twitter-blue);
-    margin-top: 15px;
+  color: var(--twitter-blue);
+  margin-top: 15px;
 }
 
 .tweet_content li {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .tweet_content ol li a {
-    text-decoration: none;
-    color: var(--twitter-blue);
+  text-decoration: none;
+  color: var(--twitter-blue);
 }
 
 .tweet_content ol li a:visited {
-    text-decoration: none;
-    background-color: var(--twitter-blue);
+  text-decoration: none;
+  background-color: var(--twitter-blue);
 
 }
 
+/* ========================================
+   TABLE
+   ======================================== */
+
 .tweet_content table {
-    margin-top: 15px;
+  margin-top: 15px;
+}
+
+#table_books {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+#table_books th {
+  text-align: left;
+  padding: 12px;
+  font-weight: bold;
+}
+
+#table_books td {
+  color: var(--text-main);
+  padding: 12px;
+  vertical-align: top;
+  border-bottom: 1px solid black;
+}
+
+#table_books img {
+  width: 70px;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+#table_books tr:hover {
+  background-color: var(--background-color);
+  transition: background-color 0.2s ease;
+}
+
+/* ========================================
+   FORM
+   ======================================== */
+
+#study_group_form label {
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+.sg_label {
+  color: var(--text-secondary);
+  font-size: 14px;
 }
